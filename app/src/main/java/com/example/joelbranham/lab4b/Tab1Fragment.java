@@ -18,7 +18,8 @@ import java.text.NumberFormat;
  */
 public class Tab1Fragment extends Fragment implements View.OnClickListener{
 
-    private View v;
+
+    View newView;
 
     public Tab1Fragment() {
         // Required empty public constructor
@@ -29,18 +30,18 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        v = inflater.inflate(R.layout.fragment_tab1, container, false);
-        Button b = (Button)v.findViewById(R.id.calculateButton);
+        newView = inflater.inflate(R.layout.fragment_tab1, container, false);
+        Button b = (Button) newView.findViewById(R.id.calculateButton);
         b.setOnClickListener(this);
 
-        return v;
+        return newView;
 
     }
 
     public void onClick(View v){
-        EditText billEditText = v.findViewById(R.id.billEditText);
-        EditText tipPercentageEditText = v.findViewById(R.id.tipEditText);
-        EditText numberPeopleEditText = v.findViewById(R.id.numberOfPeopleEditText);
+        EditText billEditText = newView.findViewById(R.id.billEditText);
+        EditText tipPercentageEditText = newView.findViewById(R.id.tipEditText);
+        EditText numberPeopleEditText = newView.findViewById(R.id.numberOfPeopleEditText);
 
         if (billEditText.getText().length() > 0 && numberPeopleEditText.getText().length() > 0){
 
@@ -55,7 +56,7 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener{
             double numberPeople = Double.valueOf(numberPeopleEditText.getText().toString());
             double totalPerPerson = (totalBill + totalBill * tipPercentage / 100.0) / numberPeople;
 
-            TextView resultTextView = v.findViewById(R.id.calculatedResultTextView);
+            TextView resultTextView = newView.findViewById(R.id.calculatedResultTextView);
             resultTextView.setText(NumberFormat.getCurrencyInstance().format(Math.round(totalPerPerson * 100) / 100.00));
         }
     }

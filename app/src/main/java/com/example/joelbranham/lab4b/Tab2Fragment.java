@@ -15,7 +15,7 @@ import android.widget.EditText;
  */
 public class Tab2Fragment extends Fragment implements View.OnClickListener {
 
-    View v;
+    private View newView;
 
     public Tab2Fragment() {
         // Required empty public constructor
@@ -26,27 +26,27 @@ public class Tab2Fragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        v = inflater.inflate(R.layout.fragment_tab2, container, false);
-        Button b = (Button) v.findViewById(R.id.calculateButton);
+        newView = inflater.inflate(R.layout.fragment_tab2, container, false);
+        Button b = (Button) newView.findViewById(R.id.calculateButton);
         b.setOnClickListener(this);
 
-        return v;
+        return newView;
 
     }
 
     public void onClick(View v){
-        String miles = ((EditText) v.findViewById(R.id.milesEditText)).getText().toString();
-        String kilometers = ((EditText) v.findViewById(R.id.kilometersEditText)).getText().toString();
+        String miles = ((EditText) newView.findViewById(R.id.milesEditText)).getText().toString();
+        String kilometers = ((EditText) newView.findViewById(R.id.kilometersEditText)).getText().toString();
 
         if (miles.isEmpty()){
             if (!kilometers.isEmpty()){
                 Double m = Double.valueOf(kilometers) / 1.609344;
-                ((EditText) v.findViewById(R.id.milesEditText)).setText(Double.toString(m));
+                ((EditText) newView.findViewById(R.id.milesEditText)).setText(Double.toString(m));
             }
         }
         else{
             Double km = Double.valueOf(miles) * 1.609344;
-            ((EditText) v.findViewById(R.id.kilometersEditText)).setText(Double.toString(km));
+            ((EditText) newView.findViewById(R.id.kilometersEditText)).setText(Double.toString(km));
         }
     }
 
