@@ -18,8 +18,7 @@ import java.text.NumberFormat;
  */
 public class Tab1Fragment extends Fragment implements View.OnClickListener{
 
-
-    View newView;
+    private View newView;
 
     public Tab1Fragment() {
         // Required empty public constructor

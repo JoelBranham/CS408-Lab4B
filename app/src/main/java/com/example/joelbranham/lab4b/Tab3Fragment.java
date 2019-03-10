@@ -15,7 +15,6 @@ import android.widget.EditText;
  */
 public class Tab3Fragment extends Fragment implements View.OnClickListener {
 
-
     private View newView;
 
     public Tab3Fragment() {
