@@ -23,7 +23,7 @@ public class MilesConverterFragment extends Fragment implements View.OnClickList
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View newView = inflater.inflate(R.layout.fragment_tab2, container, false);
+        View newView = inflater.inflate(R.layout.fragment_miles, container, false);
         Button b = (Button) newView.findViewById(R.id.calculateButton);
         b.setOnClickListener(this);
         return newView;

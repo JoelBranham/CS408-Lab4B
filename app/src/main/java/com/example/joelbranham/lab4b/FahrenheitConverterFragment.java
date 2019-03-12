@@ -21,7 +21,7 @@ public class FahrenheitConverterFragment extends Fragment implements View.OnClic
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View newView = inflater.inflate(R.layout.fragment_tab3, container, false);
+        View newView = inflater.inflate(R.layout.fragment_fahrenheit, container, false);
         Button b = (Button) newView.findViewById(R.id.calculateButton);
         b.setOnClickListener(this);
         return newView;

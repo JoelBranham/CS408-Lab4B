@@ -25,7 +25,7 @@ public class TipCalculatorFragment extends Fragment implements View.OnClickListe
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View newView = inflater.inflate(R.layout.fragment_tab1, container, false);
+        View newView = inflater.inflate(R.layout.fragment_tip, container, false);
         Button b = (Button) newView.findViewById(R.id.calculateButton);
         b.setOnClickListener(this);
         return newView;
