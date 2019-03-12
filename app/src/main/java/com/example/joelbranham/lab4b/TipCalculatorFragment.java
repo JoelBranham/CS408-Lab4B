@@ -16,31 +16,25 @@ import java.text.NumberFormat;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Tab1Fragment extends Fragment implements View.OnClickListener{
+public class TipCalculatorFragment extends Fragment implements View.OnClickListener{
 
-    private View newView;
-
-    public Tab1Fragment() {
+    public TipCalculatorFragment() {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
-        newView = inflater.inflate(R.layout.fragment_tab1, container, false);
+        View newView = inflater.inflate(R.layout.fragment_tab1, container, false);
         Button b = (Button) newView.findViewById(R.id.calculateButton);
         b.setOnClickListener(this);
-
         return newView;
-
     }
 
     public void onClick(View v){
-        EditText billEditText = newView.findViewById(R.id.billEditText);
-        EditText tipPercentageEditText = newView.findViewById(R.id.tipEditText);
-        EditText numberPeopleEditText = newView.findViewById(R.id.numberOfPeopleEditText);
+        EditText billEditText = getView().findViewById(R.id.billEditText);
+        EditText tipPercentageEditText = getView().findViewById(R.id.tipEditText);
+        EditText numberPeopleEditText = getView().findViewById(R.id.numberOfPeopleEditText);
 
         if (billEditText.getText().length() > 0 && numberPeopleEditText.getText().length() > 0){
 
@@ -54,9 +48,10 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener{
             double totalBill = Double.valueOf(billEditText.getText().toString());
             double numberPeople = Double.valueOf(numberPeopleEditText.getText().toString());
             double totalPerPerson = (totalBill + totalBill * tipPercentage / 100.0) / numberPeople;
-
-            TextView resultTextView = newView.findViewById(R.id.calculatedResultTextView);
-            resultTextView.setText(NumberFormat.getCurrencyInstance().format(Math.round(totalPerPerson * 100) / 100.00));
+            if (numberPeople > 0){
+                TextView resultTextView = getView().findViewById(R.id.calculatedResultTextView);
+                resultTextView.setText(NumberFormat.getCurrencyInstance().format(Math.round(totalPerPerson * 100) / 100.00));
+            }
         }
     }
 

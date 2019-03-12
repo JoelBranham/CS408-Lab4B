@@ -2,7 +2,9 @@ package com.example.joelbranham.lab4b;
 
 import android.support.v4.app.*;
 public class TabPagerAdapter extends FragmentPagerAdapter {
-    int tabCount;
+
+    private int tabCount;
+
     public TabPagerAdapter(FragmentManager fm, int numTabs) {
         super(fm);
         this.tabCount = numTabs;
@@ -10,9 +12,9 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0: return new Tab1Fragment();
-            case 1: return new Tab2Fragment();
-            case 2: return new Tab3Fragment();
+            case 0: return new TipCalculatorFragment();
+            case 1: return new MilesConverterFragment();
+            case 2: return new FahrenheitConverterFragment();
             default: return null;
         }
     }

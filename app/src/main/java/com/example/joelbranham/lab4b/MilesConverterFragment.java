@@ -13,40 +13,35 @@ import android.widget.EditText;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Tab2Fragment extends Fragment implements View.OnClickListener {
+public class MilesConverterFragment extends Fragment implements View.OnClickListener {
 
-    private View newView;
 
-    public Tab2Fragment() {
+    public MilesConverterFragment() {
         // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        newView = inflater.inflate(R.layout.fragment_tab2, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View newView = inflater.inflate(R.layout.fragment_tab2, container, false);
         Button b = (Button) newView.findViewById(R.id.calculateButton);
         b.setOnClickListener(this);
-
         return newView;
-
     }
 
     public void onClick(View v){
-        String miles = ((EditText) newView.findViewById(R.id.milesEditText)).getText().toString();
-        String kilometers = ((EditText) newView.findViewById(R.id.kilometersEditText)).getText().toString();
+        String miles = ((EditText) getView().findViewById(R.id.milesEditText)).getText().toString();
+        String kilometers = ((EditText) getView().findViewById(R.id.kilometersEditText)).getText().toString();
 
         if (miles.isEmpty()){
             if (!kilometers.isEmpty()){
                 Double m = Double.valueOf(kilometers) / 1.609344;
-                ((EditText) newView.findViewById(R.id.milesEditText)).setText(Double.toString(m));
+                ((EditText) getView().findViewById(R.id.milesEditText)).setText(Double.toString(m));
             }
         }
         else{
             Double km = Double.valueOf(miles) * 1.609344;
-            ((EditText) newView.findViewById(R.id.kilometersEditText)).setText(Double.toString(km));
+            ((EditText) getView().findViewById(R.id.kilometersEditText)).setText(Double.toString(km));
         }
     }
 
